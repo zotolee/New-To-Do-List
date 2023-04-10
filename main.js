@@ -2,6 +2,8 @@ const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 const danger = document.getElementById("danger");
 
+
+
 function addTask() {
     //displays an error message on the container and 
     //not a window alert.
@@ -10,7 +12,7 @@ function addTask() {
        
         danger.style.display = "block"; 
         
-        setTimeout(() => { //settimeout removes the error message from displaying
+        setTimeout(() => { //set timeout removes the error message from displaying
             danger.style.display = "none";
         }, 500);
     }
@@ -36,7 +38,7 @@ listContainer.addEventListener("click", function(e){
     else if(e.target.tagName === "SPAN"){
         e.target.parentElement.remove();//delete todos
         saveData();
-    }
+    } 
 }, false);
 
 function saveData(){//this is called to save our data even when the browser is refreshed

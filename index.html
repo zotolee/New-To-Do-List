@@ -14,7 +14,13 @@
             <div class="row">
                 <input type="text" id="input-box" placeholder="Add your text">
                 <button onclick="addTask()">Add</button>
-    
+                <div class="select">
+                    <select name="todos" id="filter-todo">
+                        <option value="all">All</option>
+                        <option value="completed">Completed</option>
+                        <option value="uncompleted">Uncompleted</option>
+                    </select>
+                </div>
             </div>
             <div class="danger" id="danger">
                 Feilds Can't be Empty!
