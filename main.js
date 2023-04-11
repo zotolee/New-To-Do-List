@@ -1,7 +1,7 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 const danger = document.getElementById("danger");
-
+const filterOption = document.getElementById("filter-todo");
 
 
 function addTask() {
@@ -41,6 +41,29 @@ listContainer.addEventListener("click", function(e){
     } 
 }, false);
 
+filterOption.addEventListener("click", function filterTodo(e){
+    [...listContainer.children].forEach(function(todo) {
+        switch (e.target.value) {
+          case "all":
+            todo.style.display = "flex";
+            break;
+          case "completed":
+            if (todo.classList.contains("checked")) {
+              todo.style.display = "flex";
+            } else {
+              todo.style.display = "none";
+            }
+            break;
+          case "uncompleted":
+            if (!todo.classList.contains("checked")) {
+              todo.style.display = "flex";
+            } else {
+              todo.style.display = "none";
+            }
+        }
+      });
+});
+
 function saveData(){//this is called to save our data even when the browser is refreshed
     localStorage.setItem("data", listContainer.innerHTML);
 }
@@ -50,3 +73,4 @@ function showTask(){
     listContainer.innerHTML = localStorage.getItem("data");
 }
 showTask();
+
